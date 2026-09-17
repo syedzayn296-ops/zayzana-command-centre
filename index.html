@@ -5,179 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zayzana Command Centre</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      color: #111;
-    }
-
-    header {
-      background: #111;
-      color: white;
-      padding: 24px 18px;
-    }
-
-    header h1 {
-      margin: 0 0 6px;
-      font-size: 28px;
-    }
-
-    header p {
-      margin: 0;
-      color: #ccc;
-    }
-
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 18px;
-    }
-
-    .section {
-      background: white;
-      border-radius: 14px;
-      padding: 18px;
-      margin-bottom: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-
-    .section h2 {
-      margin-top: 0;
-      font-size: 20px;
-    }
-
-    .card {
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 12px;
-      margin: 10px 0;
-    }
-
-    .status {
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    .money {
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
+    *{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f3f4f6;color:#111}header{background:#111;color:#fff;padding:24px 18px}header h1{margin:0 0 6px;font-size:28px}header p{margin:0;color:#ccc}main{max-width:1000px;margin:auto;padding:18px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.section{background:#fff;border-radius:14px;padding:18px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}.section h2{margin:0 0 12px;font-size:20px}.card{border:1px solid #ddd;border-radius:10px;padding:13px;margin:9px 0}.metric{font-size:25px;font-weight:700}.label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#666;font-weight:700}.status{display:inline-block;margin-top:7px;padding:4px 8px;border-radius:999px;background:#eee;font-size:11px;font-weight:700}.priority{border-left:4px solid #111}.done{text-decoration:line-through;color:#777}.action{display:flex;gap:9px;align-items:center}.action input{width:18px;height:18px}button{border:0;border-radius:8px;padding:9px 12px;background:#111;color:#fff;cursor:pointer}small{color:#666}ul{padding-left:20px;line-height:1.7}.footer{text-align:center;color:#777;font-size:12px;padding:10px}
   </style>
 </head>
-
 <body>
-
-<header>
-  <h1>Zayzana Command Centre</h1>
-  <p>We find. We build. We solve.</p>
-</header>
-
+<header><h1>Zayzana Command Centre</h1><p>We find. We build. We solve.</p></header>
 <main>
+  <section class="section">
+    <h2>Command Dashboard</h2>
+    <div class="grid">
+      <div class="card"><div class="label">Primary objective</div><div class="metric">First overseas client</div></div>
+      <div class="card"><div class="label">Revenue tracked</div><div class="metric">$0</div></div>
+      <div class="card"><div class="label">Products</div><div class="metric">5</div></div>
+      <div class="card"><div class="label">Operating principle</div><div class="metric">Build assets</div></div>
+    </div>
+  </section>
 
   <section class="section">
     <h2>Today / Next Actions</h2>
-    <div class="card">
-      <strong>Build Command Centre V1</strong>
-      <div class="status">IN PROGRESS</div>
-    </div>
-    <div class="card">
-      <strong>Find first overseas client</strong>
-      <div class="status">HIGH PRIORITY</div>
-    </div>
+    <div class="card priority"><div class="action"><input type="checkbox" id="a1"><label for="a1"><strong>Continue overseas client outreach</strong><br><small>Track every contact, reply and follow-up.</small></label></div></div>
+    <div class="card priority"><div class="action"><input type="checkbox" id="a2"><label for="a2"><strong>Advance Taalhuis school pipeline</strong><br><small>Follow warm leads and incorporate product feedback.</small></label></div></div>
+    <div class="card"><div class="action"><input type="checkbox" id="a3"><label for="a3"><strong>Turn repeated problems into products</strong><br><small>Prioritise ideas that make money, create an owned asset, and unlock the next opportunity.</small></label></div></div>
   </section>
 
   <section class="section">
     <h2>Projects</h2>
-
-    <div class="card">
-      <strong>Taalhuis</strong>
-      <p>Educational SaaS / school product</p>
-      <div class="status">ACTIVE</div>
+    <div class="grid">
+      <div class="card"><strong>Taalhuis</strong><p>Educational SaaS / school product</p><span class="status">ACTIVE</span></div>
+      <div class="card"><strong>Fishing Logbook</strong><p>Offline-first fishing intelligence product</p><span class="status">BUILDING</span></div>
+      <div class="card"><strong>Overseas Services</strong><p>Remote services for international small businesses</p><span class="status">HIGH PRIORITY</span></div>
+      <div class="card"><strong>Plumbing Lead Gen</strong><p>Lead-generation system for service businesses</p><span class="status">PIPELINE</span></div>
+      <div class="card"><strong>Take n Pay Delivery</strong><p>Delivery-system business proposal</p><span class="status">IDEA / RESEARCH</span></div>
     </div>
-
-    <div class="card">
-      <strong>Overseas Services</strong>
-      <p>Remote services for international small businesses</p>
-      <div class="status">HIGH PRIORITY</div>
-    </div>
-
-    <div class="card">
-      <strong>OpenMontage</strong>
-      <p>AI-assisted video production</p>
-      <div class="status">BUILDING</div>
-    </div>
-
   </section>
 
   <section class="section">
-    <h2>Leads & Money</h2>
-    <div class="money">$0</div>
-    <p>First overseas client target</p>
+    <h2>Lead & Money Pipeline</h2>
+    <div class="grid">
+      <div class="card"><div class="label">Prospects</div><div class="metric">Track</div><small>One-by-one outreach</small></div>
+      <div class="card"><div class="label">Replies</div><div class="metric">Track</div><small>Separate warm leads</small></div>
+      <div class="card"><div class="label">Clients</div><div class="metric">0</div></div>
+      <div class="card"><div class="label">Revenue</div><div class="metric">$0</div></div>
+    </div>
+  </section>
 
+  <section class="section">
+    <h2>Owned Assets</h2>
     <ul>
-      <li>Prospects contacted: 0 tracked here yet</li>
-      <li>Replies: 0 tracked here yet</li>
-      <li>Clients: 0</li>
-      <li>Revenue: $0</li>
+      <li>Taalhuis product and school-facing web asset</li>
+      <li>Fishing Logbook codebase and fishing-data model</li>
+      <li>Zayzana Tech website and Command Centre</li>
+      <li>Lead-generation systems and outreach data</li>
+      <li>Reusable AI/automation workflows</li>
     </ul>
   </section>
 
   <section class="section">
     <h2>Tool Vault</h2>
-
-    <div class="card">
-      <strong>FreeLLMAPI</strong>
-      <p>Unified AI/API layer</p>
+    <div class="grid">
+      <div class="card"><strong>FreeLLMAPI</strong><p>Unified AI/API layer</p></div>
+      <div class="card"><strong>HyperFrames</strong><p>HTML to finished video</p></div>
+      <div class="card"><strong>Open Generative AI</strong><p>Image, video and audio generation</p></div>
+      <div class="card"><strong>Agentic Inbox</strong><p>AI-assisted email and lead handling</p></div>
+      <div class="card"><strong>LinkedIn Skills</strong><p>Content and prospecting automation</p></div>
     </div>
-
-    <div class="card">
-      <strong>HyperFrames</strong>
-      <p>HTML to finished video</p>
-    </div>
-
-    <div class="card">
-      <strong>Open Generative AI</strong>
-      <p>Image, video and audio generation</p>
-    </div>
-
-    <div class="card">
-      <strong>Agentic Inbox</strong>
-      <p>AI-assisted email and lead handling</p>
-    </div>
-
-    <div class="card">
-      <strong>LinkedIn Skills</strong>
-      <p>Content and prospecting automation</p>
-    </div>
-
   </section>
 
   <section class="section">
-    <h2>Ideas</h2>
-    <ul>
-      <li>Durban Search</li>
-      <li>AI agents for small businesses</li>
-      <li>Lead-generation products</li>
-      <li>Future Zayzana SaaS products</li>
-    </ul>
+    <h2>Ideas Queue</h2>
+    <ul><li>Durban Search</li><li>Sizani SA 50+ assistance</li><li>Lerza / Lernia learning tools</li><li>AI agents for small businesses</li><li>Additional focused Zayzana SaaS products</li></ul>
   </section>
 
   <section class="section">
-    <h2>Progress</h2>
-    <p><strong>Current focus:</strong> First overseas Zayzana client</p>
-    <p><strong>Next:</strong> Turn repeated client problems into products.</p>
+    <h2>Operating Rule</h2>
+    <p><strong>Every serious project should do at least one of three things:</strong></p>
+    <ol><li>Make money.</li><li>Create an owned asset.</li><li>Make the next opportunity easier.</li></ol>
   </section>
-
+  <div class="footer">Zayzana Tech • Command Centre V1</div>
 </main>
-
+<script>
+const key='zayzana_command_v1';
+const saved=JSON.parse(localStorage.getItem(key)||'{}');
+document.querySelectorAll('input[type=checkbox]').forEach((box)=>{box.checked=!!saved[box.id];const label=box.closest('.action')?.querySelector('label');if(box.checked)label?.classList.add('done');box.addEventListener('change',()=>{saved[box.id]=box.checked;localStorage.setItem(key,JSON.stringify(saved));label?.classList.toggle('done',box.checked)})});
+</script>
 </body>
-  </html>
+</html>
