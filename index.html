@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zayzana Command Centre</title>
   <style>
-    *{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f3f4f6;color:#111}header{background:#111;color:#fff;padding:24px 18px}header h1{margin:0 0 6px;font-size:28px}header p{margin:0;color:#ccc}main{max-width:1000px;margin:auto;padding:18px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.section{background:#fff;border-radius:14px;padding:18px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}.section h2{margin:0 0 12px;font-size:20px}.card{border:1px solid #ddd;border-radius:10px;padding:13px;margin:9px 0}.metric{font-size:25px;font-weight:700}.label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#666;font-weight:700}.status{display:inline-block;margin-top:7px;padding:4px 8px;border-radius:999px;background:#eee;font-size:11px;font-weight:700}.priority{border-left:4px solid #111}.done{text-decoration:line-through;color:#777}.action{display:flex;gap:9px;align-items:center}.action input{width:18px;height:18px}button{border:0;border-radius:8px;padding:9px 12px;background:#111;color:#fff;cursor:pointer}small{color:#666}ul{padding-left:20px;line-height:1.7}.footer{text-align:center;color:#777;font-size:12px;padding:10px}
+    *{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f3f4f6;color:#111}header{background:#111;color:#fff;padding:24px 18px}header h1{margin:0 0 6px;font-size:28px}header p{margin:0;color:#ccc}main{max-width:1050px;margin:auto;padding:18px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.section{background:#fff;border-radius:14px;padding:18px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}.section h2{margin:0 0 12px;font-size:20px}.card{border:1px solid #ddd;border-radius:10px;padding:13px;margin:9px 0}.metric{font-size:25px;font-weight:700}.label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#666;font-weight:700}.status{display:inline-block;margin-top:7px;padding:4px 8px;border-radius:999px;background:#eee;font-size:11px;font-weight:700}.priority{border-left:4px solid #111}.done{text-decoration:line-through;color:#777}.action{display:flex;gap:9px;align-items:center}.action input{width:18px;height:18px}button{border:0;border-radius:8px;padding:9px 12px;background:#111;color:#fff;cursor:pointer}button.secondary{background:#fff;color:#111;border:1px solid #bbb}input,select{width:100%;border:1px solid #ccc;border-radius:8px;padding:9px;background:#fff}form{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}form button{align-self:end}.progress{height:9px;background:#e8e8e8;border-radius:8px;overflow:hidden;margin-top:7px}.progress>span{display:block;height:100%;background:#111}.pipeline-row{display:grid;grid-template-columns:1.2fr .9fr .8fr .8fr 110px;gap:9px;align-items:center;border-top:1px solid #eee;padding:10px 0}.pipeline-row:first-child{border-top:0}.tiny{font-size:12px;color:#666}.empty{padding:14px 0;color:#777;font-size:13px}.footer{text-align:center;color:#777;font-size:12px;padding:10px}@media(max-width:700px){.pipeline-row{grid-template-columns:1fr 1fr}.pipeline-row>div:last-child{grid-column:1/-1}.section{padding:15px}}
   </style>
 </head>
 <body>
@@ -15,9 +15,11 @@
     <h2>Command Dashboard</h2>
     <div class="grid">
       <div class="card"><div class="label">Primary objective</div><div class="metric">First overseas client</div></div>
-      <div class="card"><div class="label">Revenue tracked</div><div class="metric">$0</div></div>
-      <div class="card"><div class="label">Products</div><div class="metric">5</div></div>
-      <div class="card"><div class="label">Operating principle</div><div class="metric">Build assets</div></div>
+      <div class="card"><div class="label">Tracked prospects</div><div class="metric" id="prospectCount">0</div></div>
+      <div class="card"><div class="label">Warm / follow-up</div><div class="metric" id="followupCount">0</div></div>
+      <div class="card"><div class="label">Clients</div><div class="metric" id="clientCount">0</div></div>
+      <div class="card"><div class="label">Revenue tracked</div><div class="metric" id="revenue">$0</div></div>
+      <div class="card"><div class="label">Tasks completed</div><div class="metric" id="taskCount">0 / 0</div></div>
     </div>
   </section>
 
@@ -30,23 +32,21 @@
 
   <section class="section">
     <h2>Projects</h2>
-    <div class="grid">
-      <div class="card"><strong>Taalhuis</strong><p>Educational SaaS / school product</p><span class="status">ACTIVE</span></div>
-      <div class="card"><strong>Fishing Logbook</strong><p>Offline-first fishing intelligence product</p><span class="status">BUILDING</span></div>
-      <div class="card"><strong>Overseas Services</strong><p>Remote services for international small businesses</p><span class="status">HIGH PRIORITY</span></div>
-      <div class="card"><strong>Plumbing Lead Gen</strong><p>Lead-generation system for service businesses</p><span class="status">PIPELINE</span></div>
-      <div class="card"><strong>Take n Pay Delivery</strong><p>Delivery-system business proposal</p><span class="status">IDEA / RESEARCH</span></div>
-    </div>
+    <div class="grid" id="projectGrid"></div>
   </section>
 
   <section class="section">
     <h2>Lead & Money Pipeline</h2>
-    <div class="grid">
-      <div class="card"><div class="label">Prospects</div><div class="metric">Track</div><small>One-by-one outreach</small></div>
-      <div class="card"><div class="label">Replies</div><div class="metric">Track</div><small>Separate warm leads</small></div>
-      <div class="card"><div class="label">Clients</div><div class="metric">0</div></div>
-      <div class="card"><div class="label">Revenue</div><div class="metric">$0</div></div>
-    </div>
+    <p class="tiny">This tracker is stored in this browser only for now. It is deliberately database-free so the Command Centre works without paid infrastructure.</p>
+    <form id="leadForm">
+      <input id="leadName" placeholder="Company / lead" required>
+      <input id="leadContact" placeholder="Contact / channel">
+      <select id="leadStatus"><option>Prospect</option><option>Warm</option><option>Follow-up</option><option>Client</option><option>Closed</option></select>
+      <input id="leadValue" type="number" min="0" step="1" placeholder="Value USD">
+      <input id="leadFollowUp" type="date">
+      <button type="submit">+ Add lead</button>
+    </form>
+    <div id="pipeline" style="margin-top:14px"></div>
   </section>
 
   <section class="section">
@@ -81,12 +81,31 @@
     <p><strong>Every serious project should do at least one of three things:</strong></p>
     <ol><li>Make money.</li><li>Create an owned asset.</li><li>Make the next opportunity easier.</li></ol>
   </section>
-  <div class="footer">Zayzana Tech • Command Centre V1</div>
+  <div class="footer">Zayzana Tech • Command Centre V2 • Browser-local working tracker</div>
 </main>
 <script>
-const key='zayzana_command_v1';
-const saved=JSON.parse(localStorage.getItem(key)||'{}');
-document.querySelectorAll('input[type=checkbox]').forEach((box)=>{box.checked=!!saved[box.id];const label=box.closest('.action')?.querySelector('label');if(box.checked)label?.classList.add('done');box.addEventListener('change',()=>{saved[box.id]=box.checked;localStorage.setItem(key,JSON.stringify(saved));label?.classList.toggle('done',box.checked)})});
+const CHECK_KEY='zayzana_command_v2';
+const DATA_KEY='zayzana_pipeline_v1';
+const saved=JSON.parse(localStorage.getItem(CHECK_KEY)||'{}');
+const leads=JSON.parse(localStorage.getItem(DATA_KEY)||'[]');
+const projectData=[
+  ['Taalhuis','Educational SaaS / school product','ACTIVE',85],
+  ['Fishing Logbook','Offline-first fishing intelligence product','BUILDING',70],
+  ['Overseas Services','Remote services for international small businesses','HIGH PRIORITY',45],
+  ['Plumbing Lead Gen','Lead-generation system for service businesses','PIPELINE',25],
+  ['Take n Pay Delivery','Delivery-system business proposal','IDEA / RESEARCH',10]
+];
+const projectGrid=document.getElementById('projectGrid');
+projectData.forEach(p=>{projectGrid.insertAdjacentHTML('beforeend',`<div class="card"><strong>${p[0]}</strong><p>${p[1]}</p><span class="status">${p[2]}</span><div class="progress"><span style="width:${p[3]}%"></span></div><div class="tiny">${p[3]}% working estimate</div></div>`)});
+
+document.querySelectorAll('input[type=checkbox]').forEach((box)=>{box.checked=!!saved[box.id];const label=box.closest('.action')?.querySelector('label');if(box.checked)label?.classList.add('done');box.addEventListener('change',()=>{saved[box.id]=box.checked;localStorage.setItem(CHECK_KEY,JSON.stringify(saved));label?.classList.toggle('done',box.checked);renderMetrics()})});
+function persist(){localStorage.setItem(DATA_KEY,JSON.stringify(leads));renderPipeline();renderMetrics()}
+function renderPipeline(){const el=document.getElementById('pipeline');if(!leads.length){el.innerHTML='<div class="empty">No leads entered yet — add the next contact above.</div>';return}el.innerHTML=leads.map((l,i)=>`<div class="pipeline-row"><div><strong>${escapeHtml(l.name)}</strong><div class="tiny">${escapeHtml(l.contact||'No contact saved')}</div></div><div><span class="status">${escapeHtml(l.status)}</span></div><div>$${Number(l.value||0).toLocaleString()}</div><div>${l.followUp||'—'}</div><div><button class="secondary" onclick="removeLead(${i})">Remove</button></div></div>`).join('')}
+function renderMetrics(){const prospects=leads.filter(l=>l.status!=='Closed').length;const follow=leads.filter(l=>l.status==='Warm'||l.status==='Follow-up').length;const clients=leads.filter(l=>l.status==='Client').length;const revenue=leads.filter(l=>l.status==='Client').reduce((s,l)=>s+Number(l.value||0),0);const boxes=[...document.querySelectorAll('input[type=checkbox]')];const done=boxes.filter(b=>b.checked).length;document.getElementById('prospectCount').textContent=prospects;document.getElementById('followupCount').textContent=follow;document.getElementById('clientCount').textContent=clients;document.getElementById('revenue').textContent='$'+revenue.toLocaleString();document.getElementById('taskCount').textContent=done+' / '+boxes.length}
+function removeLead(i){leads.splice(i,1);persist()}
+function escapeHtml(v){return String(v).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+document.getElementById('leadForm').addEventListener('submit',(e)=>{e.preventDefault();leads.unshift({name:document.getElementById('leadName').value.trim(),contact:document.getElementById('leadContact').value.trim(),status:document.getElementById('leadStatus').value,value:document.getElementById('leadValue').value,followUp:document.getElementById('leadFollowUp').value});e.target.reset();persist()});
+renderPipeline();renderMetrics();
 </script>
 </body>
 </html>
