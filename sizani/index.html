@@ -8,7 +8,7 @@
 <style>
 :root{--ink:#111;--muted:#666;--line:#e5e5e5;--soft:#f6f6f4;--card:#fff}
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:var(--soft);color:var(--ink)}
-header{background:#111;color:#fff;padding:22px 18px}header .wrap,main{max-width:980px;margin:auto}header h1{margin:0;font-size:30px;letter-spacing:-.04em}header p{margin:3px 0 0;color:#cfcfcf}
+header{background:#111;color:#fff;padding:18px}header .wrap,main{max-width:980px;margin:auto}header h1{margin:0;font-size:30px;letter-spacing:-.04em}header p{margin:3px 0 0;color:#cfcfcf}
 main{padding:18px}.hero{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;margin-bottom:14px}.hero h2{font-size:28px;line-height:1.05;margin:0 0 8px}.hero p{color:var(--muted);margin:0 0 16px}
 .ask{display:flex;gap:8px}.ask input{flex:1;min-width:0;padding:14px;border:1px solid #ccc;border-radius:12px;font-size:16px}.ask button,.btn{border:0;border-radius:12px;background:#111;color:#fff;padding:13px 16px;font-weight:700;cursor:pointer}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:17px;cursor:pointer}.card:hover{border-color:#999}.icon{font-size:25px}.card h3{margin:8px 0 4px}.card p{margin:0;color:var(--muted);font-size:13px}
@@ -20,10 +20,10 @@ footer{text-align:center;color:#777;font-size:12px;padding:20px}
 </style>
 </head>
 <body>
-<header><div class="wrap"><h1>SIZANI</h1><p>Help when you need it.</p></div></header>
+<header><div class="wrap"><div style="display:flex;justify-content:space-between;gap:12px;align-items:center"><div><h1>SIZANI</h1><p>Help when you need it.</p></div><select id="language" aria-label="Choose your language" onchange="setLanguage(this.value)" style="padding:10px;border-radius:10px;border:1px solid #777;background:#fff;color:#111;font-weight:700"><option value="en">English</option><option value="zu">isiZulu</option><option value="xh">isiXhosa</option><option value="af">Afrikaans</option><option value="nso">Sepedi</option><option value="st">Sesotho</option><option value="tn">Setswana</option><option value="ss">siSwati</option><option value="ve">Tshivenda</option><option value="ts">itsonga</option><option value="nr">isiNdebele</option><option value="sasl">South African Sign Language</option></select></div></div></header>
 <main>
 <section class="hero">
-<span class="badge">South Africa • V0.1 prototype</span>
+<span class="badge">South Africa • V0.2 build</span>
 <h2>What do you need help with?</h2>
 <p>Tell Sizani in your own words. We'll point you toward the right service or next step.</p>
 <div class="ask"><input id="ask" placeholder="e.g. My dad is 78 and needs help at home"><button onclick="askSizani()">Ask Sizani</button></div>
@@ -32,6 +32,7 @@ footer{text-align:center;color:#777;font-size:12px;padding:20px}
 
 <section class="section">
 <div class="grid">
+<div class="card" onclick="show('phone')"><div class="icon">📱</div><h3>My Phone</h3><p>I don't know how to use my phone.</p></div>
 <div class="card" onclick="show('grant')"><div class="icon">💳</div><h3>My Grant</h3><p>Older persons, disability, Grant-in-Aid and other social assistance.</p></div>
 <div class="card" onclick="show('health')"><div class="icon">🏥</div><h3>My Health</h3><p>Find the right healthcare pathway and official information.</p></div>
 <div class="card" onclick="show('care')"><div class="icon">🤝</div><h3>I Care for Someone</h3><p>Caregiver, home-care and older-person support pathways.</p></div>
@@ -77,8 +78,13 @@ health:{title:'My Health',html:'<p>V0.1 keeps healthcare navigation simple. The 
 basic:{title:'Food & Basic Needs',html:'<p>V0.1 is a navigation placeholder. We will add verified government and community support routes here, province by province.</p>'},
 safety:{title:'Safety',html:'<p>If someone is in immediate danger, use the appropriate emergency service. Sizani will later provide verified South African emergency and protection pathways.</p>'},
 home:{title:'Home & Electricity',html:'<p>V0.1 is a navigation placeholder for municipal services, electricity information, load-shedding resources and household assistance.</p>'},
+phone:{title:'My Phone',html:'<p><strong>Tell Sizani what you are trying to do.</strong> You can ask things like “How do I make the writing bigger?”, “How do I send a photo on WhatsApp?” or “How do I save a phone number?”</p><div class="grid"><div class="card" onclick="phoneHelp('font')"><h3>Make writing bigger</h3><p>Accessibility and font-size help.</p></div><div class="card" onclick="phoneHelp('whatsapp')"><h3>Send a WhatsApp</h3><p>Simple step-by-step help.</p></div><div class="card" onclick="phoneHelp('contact')"><h3>Save a number</h3><p>Learn how to save a contact.</p></div><div class="card" onclick="phoneHelp('settings')"><h3>Find Settings</h3><p>Learn where the settings button is.</p></div></div><div id="phoneResult" class="notice">Choose something above and Sizani will guide you one step at a time.</div>'},
 family:{title:'Family Mode',html:'<p>The family member becomes the navigator: save a person’s key non-sensitive tasks, official links and reminders without pretending Sizani is a medical or government record system.</p>'}
 };
+function phoneHelp(k){const p={font:'Step 1: Open Settings ⚙️. Step 2: Look for Display or Accessibility. Step 3: Choose Font size or Text size. Step 4: Increase the size until it is comfortable.',whatsapp:'Step 1: Open WhatsApp. Step 2: Open the person you want to message. Step 3: Tap the message box. Step 4: Type your message and tap Send.',contact:'Step 1: Open the Phone app. Step 2: Tap Contacts. Step 3: Tap Add contact (+). Step 4: Enter the name and number, then save it.',settings:'Look for the ⚙️ gear icon. That is usually the Settings button. If you cannot find it, swipe down from the top of the screen and look for the gear icon.'};document.getElementById('phoneResult').innerHTML='<strong>Try this:</strong><br>'+p[k]+'<br><br><strong>Did that work?</strong> ✅ Yes &nbsp; ❌ No, I need more help';}
+const languageNames={en:'English',zu:'isiZulu',xh:'isiXhosa',af:'Afrikaans',nso:'Sepedi',st:'Sesotho',tn:'Setswana',ss:'siSwati',ve:'Tshivenda',ts:'itsonga',nr:'isiNdebele',sasl:'South African Sign Language'};
+function setLanguage(v){localStorage.setItem('sizani-language',v);document.documentElement.lang=v==='sasl'?'en':v;const name=languageNames[v];if(v!=='en')document.getElementById('ask').placeholder='Tell Sizani what you need • '+name;else document.getElementById('ask').placeholder='e.g. My dad is 78 and needs help at home';}
+const savedLanguage=localStorage.getItem('sizani-language');if(savedLanguage){document.getElementById('language').value=savedLanguage;setLanguage(savedLanguage)}
 function show(k){const d=data[k]||data.grant;document.getElementById('sectionTitle').textContent=d.title;document.getElementById('detail').innerHTML=d.html+'<div class="verified">Official-source prototype • information checked 19 September 2026</div>';document.getElementById('detail').style.display='block';document.getElementById('detail').scrollIntoView({behavior:'smooth',block:'start'})}
 function askSizani(){const q=document.getElementById('ask').value.toLowerCase();let k='basic';if(/grant|pension|sassa|money|old age|60\+|60 years/.test(q))k='grant';else if(/care|caregiver|home help|can't look after|cannot look after|full.?time|dad|mom|mother|father|parent/.test(q))k='care';else if(/health|clinic|hospital|doctor|medicine|sick/.test(q))k='health';else if(/safe|danger|abuse|crime/.test(q))k='safety';else if(/electric|power|load shedding|municipal|house/.test(q))k='home';show(k)}
 document.getElementById('ask').addEventListener('keydown',e=>{if(e.key==='Enter')askSizani()});
