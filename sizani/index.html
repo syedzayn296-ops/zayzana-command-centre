@@ -101,7 +101,24 @@ function applyLanguage(v){
  const cards=[['phone',t.phone,t.phoneText],['grant',t.grant,t.grantText],['health',t.health,t.healthText],['care',t.care,t.careText],['basic',t.basic,t.basicText],['safety',t.safety,t.safetyText],['home',t.home,t.homeText]];
  document.querySelectorAll('section.section')[0].querySelectorAll('.card').forEach((el,i)=>{if(cards[i]){el.querySelector('h3').textContent=cards[i][1];el.querySelector('p').textContent=cards[i][2];}});
  document.querySelectorAll('section.section')[1].querySelector('h2').textContent=t.quick;
+ const quickCards=document.querySelectorAll('section.section')[1].querySelectorAll('.card');
+ const quickText={
+   en:[['Could I qualify for a grant?','Start with the official SASSA requirements.'],['Someone needs full-time care','See Grant-in-Aid and care pathways.'],["I'm helping a family member",'Use Sizani as the family navigator.']],
+   zu:[['Ngingafaneleka ukuthola isibonelelo?','Qala ngezidingo ezisemthethweni ze-SASSA.'],['Umuntu udinga ukunakekelwa ngokugcwele','Bheka i-Grant-in-Aid nezindlela zokunakekela.'],['Ngisiza ilungu lomndeni','Sebenzisa uSizani njengomsizi womndeni.']],
+   xh:[['Ndingasifumana isibonelelo?','Qala ngeemfuno ezisemthethweni ze-SASSA.'],['Umntu ufuna ukhathalelo olupheleleyo','Jonga iGrant-in-Aid neendlela zokhathalelo.'],['Ndinceda ilungu losapho','Sebenzisa uSizani njengomncedisi wosapho.']],
+   af:[['Kan ek vir ’n toelae kwalifiseer?','Begin met die amptelike SASSA-vereistes.'],['Iemand benodig voltydse sorg','Sien Grant-in-Aid en versorgingsroetes.'],['Ek help ’n familielid','Gebruik Sizani as die gesinsnavigator.']]
+ };
+ const qt=quickText[v]||quickText.en; quickCards.forEach((el,i)=>{el.querySelector('h3').textContent=qt[i][0];el.querySelector('p').textContent=qt[i][1];});
  document.getElementById('sectionTitle').textContent=t.official;
+ const detail=document.getElementById('detail');
+ const links=detail.querySelector('.links');
+ const officialCopy={
+   en:['Sizani does not make government decisions. It helps you understand where to start and links back to official sources.',['SASSA Services','Gov.za • Retirement & Old Age','Gov.za • Grant-in-Aid']],
+   zu:['USizani akenzi izinqumo zikahulumeni. Usiza uqonde ukuthi uqale kuphi futhi ikuxhumanise nemithombo esemthethweni.',['Izinsiza ze-SASSA','Gov.za • Umhlalaphansi Nobudala','Gov.za • Grant-in-Aid']],
+   xh:['USizani akenzi zigqibo zikarhulumente. Ikunceda uqonde ukuba uqale phi kwaye ikudibanise nemithombo esemthethweni.',['Iinkonzo ze-SASSA','Gov.za • Umhlalaphantsi Nobudala','Gov.za • Grant-in-Aid']],
+   af:['Sizani neem nie regeringsbesluite nie. Dit help jou verstaan waar om te begin en skakel jou na amptelike bronne.',['SASSA-dienste','Gov.za • Aftrede & Ouderdom','Gov.za • Grant-in-Aid']]
+ };
+ const oc=officialCopy[v]||officialCopy.en; detail.querySelector('p').textContent=oc[0]; links.querySelectorAll('a').forEach((a,i)=>a.textContent=oc[1][i]);
  document.querySelectorAll('section.section')[3].querySelector('h2').textContent=t.principle;
  document.querySelector('.notice').textContent=v==='en'?'We will never say “you definitely qualify” unless an authoritative service makes that determination. Sizani can explain requirements, show the official route, and help a family prepare.':'Sizani does not make government decisions. It helps explain requirements and show official routes.';
  document.querySelectorAll('.verified').forEach(e=>e.textContent=t.verified);
