@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sizani — Help when you need it</title>
+<meta name="description" content="Sizani helps people find the right South African service or support pathway.">
+<style>
+:root{--ink:#111;--muted:#666;--line:#e5e5e5;--soft:#f6f6f4;--card:#fff}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:var(--soft);color:var(--ink)}
+header{background:#111;color:#fff;padding:22px 18px}header .wrap,main{max-width:980px;margin:auto}header h1{margin:0;font-size:30px;letter-spacing:-.04em}header p{margin:3px 0 0;color:#cfcfcf}
+main{padding:18px}.hero{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;margin-bottom:14px}.hero h2{font-size:28px;line-height:1.05;margin:0 0 8px}.hero p{color:var(--muted);margin:0 0 16px}
+.ask{display:flex;gap:8px}.ask input{flex:1;min-width:0;padding:14px;border:1px solid #ccc;border-radius:12px;font-size:16px}.ask button,.btn{border:0;border-radius:12px;background:#111;color:#fff;padding:13px 16px;font-weight:700;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:17px;cursor:pointer}.card:hover{border-color:#999}.icon{font-size:25px}.card h3{margin:8px 0 4px}.card p{margin:0;color:var(--muted);font-size:13px}
+.section{margin:14px 0}.section h2{font-size:20px;margin:0 0 10px}.result{display:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:17px}.result h3{margin:0 0 8px}.result ul{padding-left:20px}.notice{font-size:12px;color:#666;background:#fafafa;border:1px solid var(--line);padding:11px;border-radius:10px;margin-top:12px}
+.links{display:flex;flex-wrap:wrap;gap:8px}.links a{display:inline-block;text-decoration:none;color:#111;border:1px solid #bbb;border-radius:10px;padding:9px 11px;font-size:13px;background:#fff}
+.badge{display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;background:#eee;border-radius:99px;padding:5px 8px}.verified{margin-top:12px;color:#555;font-size:12px}
+footer{text-align:center;color:#777;font-size:12px;padding:20px}
+@media(max-width:560px){.ask{display:block}.ask button{width:100%;margin-top:8px}.hero{padding:19px}.hero h2{font-size:25px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>SIZANI</h1><p>Help when you need it.</p></div></header>
+<main>
+<section class="hero">
+<span class="badge">South Africa • V0.1 prototype</span>
+<h2>What do you need help with?</h2>
+<p>Tell Sizani in your own words. We'll point you toward the right service or next step.</p>
+<div class="ask"><input id="ask" placeholder="e.g. My dad is 78 and needs help at home"><button onclick="askSizani()">Ask Sizani</button></div>
+<div id="result" class="result" style="margin-top:12px"></div>
+</section>
+
+<section class="section">
+<div class="grid">
+<div class="card" onclick="show('grant')"><div class="icon">💳</div><h3>My Grant</h3><p>Older persons, disability, Grant-in-Aid and other social assistance.</p></div>
+<div class="card" onclick="show('health')"><div class="icon">🏥</div><h3>My Health</h3><p>Find the right healthcare pathway and official information.</p></div>
+<div class="card" onclick="show('care')"><div class="icon">🤝</div><h3>I Care for Someone</h3><p>Caregiver, home-care and older-person support pathways.</p></div>
+<div class="card" onclick="show('basic')"><div class="icon">🧺</div><h3>Food & Basic Needs</h3><p>Start with the right government or community support route.</p></div>
+<div class="card" onclick="show('safety')"><div class="icon">🛡️</div><h3>Safety</h3><p>Get help quickly when a person may be at risk.</p></div>
+<div class="card" onclick="show('home')"><div class="icon">🏠</div><h3>Home & Electricity</h3><p>Find information for household and municipal problems.</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2>Quick routes</h2>
+<div class="grid">
+<div class="card" onclick="show('grant')"><h3>Could I qualify for a grant?</h3><p>Start with the official SASSA requirements.</p></div>
+<div class="card" onclick="show('care')"><h3>Someone needs full-time care</h3><p>See Grant-in-Aid and care pathways.</p></div>
+<div class="card" onclick="show('family')"><h3>I'm helping a family member</h3><p>Use Sizani as the family navigator.</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2 id="sectionTitle">Official starting points</h2>
+<div id="detail" class="result" style="display:block">
+<p><strong>Sizani does not make government decisions.</strong> It helps you understand where to start and links back to official sources.</p>
+<div class="links">
+<a href="https://services.sassa.gov.za/portal/r/sassa/sassa/home" target="_blank" rel="noopener">SASSA Services</a>
+<a href="https://www.gov.za/services/retirement-and-old-age" target="_blank" rel="noopener">Gov.za • Retirement & Old Age</a>
+<a href="https://www.gov.za/services/social-benefits/grant-aid" target="_blank" rel="noopener">Gov.za • Grant-in-Aid</a>
+</div>
+<div class="verified">Official-source prototype • information checked 19 September 2026</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Important principle</h2>
+<div class="notice">We will never say “you definitely qualify” unless an authoritative service makes that determination. Sizani can explain requirements, show the official route, and help a family prepare.</div>
+</section>
+</main>
+<footer>Zayzana Tech • We find. We build. We solve.</footer>
+<script>
+const data={
+grant:{title:'My Grant',html:'<p>For social-grant questions, start with SASSA. The Older Persons Grant is for people aged 60+ who meet the applicable requirements. Grant-in-Aid may provide additional support for certain existing grant recipients who need full-time care.</p><div class="links"><a href="https://services.sassa.gov.za/portal/r/sassa/sassa/home" target="_blank">SASSA Services</a><a href="https://www.gov.za/services/services-residents/social-benefits/old-age-pension" target="_blank">Older Persons Grant</a><a href="https://www.gov.za/services/social-benefits/grant-aid" target="_blank">Grant-in-Aid</a></div>'},
+care:{title:'I Care for Someone',html:'<p>If an older person needs help at home, Sizani can point families toward registered community-based care, caregiver pathways and, where appropriate, residential-care information.</p><div class="links"><a href="https://www.gov.za/services/services-residents/retirement-and-old-age/register-community-based-caregiver-older-persons" target="_blank">Community-based care</a><a href="https://www.gov.za/services/services-residents/retirement-and-old-age/register-caregiver-older-persons" target="_blank">Caregiver information</a><a href="https://www.gov.za/services/services-residents/retirement-and-old-age/apply-admission-older-persons-residential" target="_blank">Residential facilities</a></div>'},
+health:{title:'My Health',html:'<p>V0.1 keeps healthcare navigation simple. The next build will add verified clinic, hospital and emergency pathways by province without inventing local listings.</p>'},
+basic:{title:'Food & Basic Needs',html:'<p>V0.1 is a navigation placeholder. We will add verified government and community support routes here, province by province.</p>'},
+safety:{title:'Safety',html:'<p>If someone is in immediate danger, use the appropriate emergency service. Sizani will later provide verified South African emergency and protection pathways.</p>'},
+home:{title:'Home & Electricity',html:'<p>V0.1 is a navigation placeholder for municipal services, electricity information, load-shedding resources and household assistance.</p>'},
+family:{title:'Family Mode',html:'<p>The family member becomes the navigator: save a person’s key non-sensitive tasks, official links and reminders without pretending Sizani is a medical or government record system.</p>'}
+};
+function show(k){const d=data[k]||data.grant;document.getElementById('sectionTitle').textContent=d.title;document.getElementById('detail').innerHTML=d.html+'<div class="verified">Official-source prototype • information checked 19 September 2026</div>';document.getElementById('detail').style.display='block';document.getElementById('detail').scrollIntoView({behavior:'smooth',block:'start'})}
+function askSizani(){const q=document.getElementById('ask').value.toLowerCase();let k='basic';if(/grant|pension|sassa|money|old age|60\+|60 years/.test(q))k='grant';else if(/care|caregiver|home help|can't look after|cannot look after|full.?time|dad|mom|mother|father|parent/.test(q))k='care';else if(/health|clinic|hospital|doctor|medicine|sick/.test(q))k='health';else if(/safe|danger|abuse|crime/.test(q))k='safety';else if(/electric|power|load shedding|municipal|house/.test(q))k='home';show(k)}
+document.getElementById('ask').addEventListener('keydown',e=>{if(e.key==='Enter')askSizani()});
+</script>
+</body>
+</html>
