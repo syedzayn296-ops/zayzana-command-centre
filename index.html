@@ -60,15 +60,11 @@
     </ul>
   </section>
 
-  <section class="section">
-    <h2>Tool Vault</h2>
-    <div class="grid">
-      <div class="card"><strong>FreeLLMAPI</strong><p>Unified AI/API layer</p></div>
-      <div class="card"><strong>HyperFrames</strong><p>HTML to finished video</p></div>
-      <div class="card"><strong>Open Generative AI</strong><p>Image, video and audio generation</p></div>
-      <div class="card"><strong>Agentic Inbox</strong><p>AI-assisted email and lead handling</p></div>
-      <div class="card"><strong>LinkedIn Skills</strong><p>Content and prospecting automation</p></div>
-    </div>
+  <section class="section" id="toolbox">
+    <h2>🧰 Zayzana Toolbox</h2>
+    <p class="tiny">Our capability catalogue. These are options we know about — not things we need to install. Use the simplest suitable tool when a real job calls for it.</p>
+    <input id="toolSearch" placeholder="Search the toolbox: AI, browser, automation, images, local, coding...">
+    <div id="toolboxGrid" class="grid" style="margin-top:12px"></div>
   </section>
 
   <section class="section">
@@ -88,6 +84,40 @@ const CHECK_KEY='zayzana_command_v2';
 const DATA_KEY='zayzana_pipeline_v1';
 const saved=JSON.parse(localStorage.getItem(CHECK_KEY)||'{}');
 const leads=JSON.parse(localStorage.getItem(DATA_KEY)||'[]');
+const toolboxData=[
+  ['GitHub','Development','Code, repos, issues and deployment','USING','https://github.com/'],
+  ['Composio','Automation','Connect apps and let workflows act across services','USING','https://composio.dev/'],
+  ['Ollama','Local AI','Run AI models locally on our machines','AVAILABLE','https://github.com/ollama/ollama'],
+  ['n8n','Automation','Build visual business and AI workflows','AVAILABLE','https://github.com/n8n-io/n8n'],
+  ['Langflow','AI Agents','Drag-and-drop AI pipelines and agent workflows','AVAILABLE','https://github.com/langflow-ai/langflow'],
+  ['OpenClaw','AI Agents','Local-first AI assistant architecture','AVAILABLE','https://github.com/openclaw/openclaw'],
+  ['Browser Use','Browser AI','Let AI operate websites and browsers','AVAILABLE','https://github.com/browser-use/browser-use'],
+  ['ComfyUI','Creative AI','Node-based image and generative media workflows','AVAILABLE','https://github.com/comfyanonymous/ComfyUI'],
+  ['Dify','AI Agents','Visual platform for AI apps and agents','AVAILABLE','https://github.com/langgenius/dify'],
+  ['CrewAI','AI Agents','Multi-agent teams and task orchestration','AVAILABLE','https://github.com/crewAIInc/crewAI'],
+  ['AutoGen','AI Agents','Multi-agent application framework','AVAILABLE','https://github.com/microsoft/autogen'],
+  ['Aider','Development','AI pair programming in the terminal','AVAILABLE','https://github.com/Aider-AI/aider'],
+  ['Open WebUI','Local AI','Self-hosted ChatGPT-style interface','AVAILABLE','https://github.com/open-webui/open-webui'],
+  ['LlamaIndex','AI / Data','Connect private data and knowledge to LLM apps','AVAILABLE','https://github.com/run-llama/llama_index'],
+  ['RAGFlow','AI / Data','RAG and document knowledge workflows','AVAILABLE','https://github.com/infiniflow/ragflow'],
+  ['Supermemory','AI Memory','Memory layer for AI applications','AVAILABLE','https://github.com/supermemoryai/supermemory'],
+  ['llama.cpp','Local AI','Run LLMs efficiently on local hardware','AVAILABLE','https://github.com/ggml-org/llama.cpp'],
+  ['Firecrawl','Research / Data','Turn websites into data for AI workflows','AVAILABLE','https://github.com/firecrawl/firecrawl'],
+  ['MarkItDown','Documents','Convert files into Markdown for AI processing','AVAILABLE','https://github.com/microsoft/markitdown'],
+  ['Public APIs','Research / Data','Large catalogue of public APIs','AVAILABLE','https://github.com/public-apis/public-apis'],
+  ['Build Your Own X','Learning','Learn by building real software systems','REFERENCE','https://github.com/codecrafters-io/build-your-own-x'],
+  ['Free Programming Books','Learning','Open collection of programming books','REFERENCE','https://github.com/EbookFoundation/free-programming-books'],
+  ['Developer Roadmap','Learning','Roadmaps for learning technology skills','REFERENCE','https://github.com/kamranahmedse/developer-roadmap']
+];
+const toolboxGrid=document.getElementById('toolboxGrid');
+function renderToolbox(filter=''){
+  const q=filter.toLowerCase().trim();
+  const rows=toolboxData.filter(t=>!q||t.join(' ').toLowerCase().includes(q));
+  toolboxGrid.innerHTML=rows.map(t=>`<div class="card"><strong>${t[0]}</strong><span class="status">${t[3]}</span><p>${t[2]}</p><div class="tiny">${t[1]} • <a href="${t[4]}" target="_blank" rel="noopener">Open project</a></div></div>`).join('')||'<div class="empty">No toolbox match.</div>';
+}
+document.getElementById('toolSearch').addEventListener('input',e=>renderToolbox(e.target.value));
+renderToolbox();
+
 const projectData=[
   ['Taalhuis','Educational SaaS / school product','ACTIVE',85],
   ['Fishing Logbook','Offline-first fishing intelligence product','BUILDING',70],
