@@ -25,6 +25,17 @@ Data is stored in the browser with `localStorage`. No paid database or external 
 - Plumbing Lead Gen
 - Take n Pay Delivery
 
+## Product Command Centre
+
+The four core Zayzana products now have a permanent tracker in the repository:
+
+- [Product Command Centre](trackers/ZAYZANA_PRODUCT_TRACKER.md)
+- [Master Tracker CSV](trackers/master-tracker.csv)
+- [Feedback & Outreach](trackers/feedback-outreach.csv)
+- [Action Queue](trackers/action-queue.csv)
+
+The tracker is designed as the operational source of truth for product status, feedback, outreach, follow-ups, blockers, next actions and revenue opportunities.
+
 ## Operating rule
 
 Every serious project should:
