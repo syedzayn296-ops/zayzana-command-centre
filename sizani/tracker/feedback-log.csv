@@ -1,0 +1,4 @@
+ID,Date,Source,Area,Feedback,Impact,Action,Status
+1,2026-09-25,Nat Govender,Language,Language change does not consistently update all visible content,High,Review language-switch implementation,Open
+2,2026-09-25,Waseem,Language,Language switching needs consistency across the interface,High,Review language-switch implementation,Open
+3,2026-09-25,Reon,Product,Prototype needs clearer breakdown of the main support pathways,Medium,Map prototype against five core Sizani areas,Open

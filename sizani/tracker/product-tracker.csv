@@ -1,0 +1,9 @@
+Type,Area,Item,Priority,Owner,Status,Next Action,Notes
+Product,Core,Sizani 50+ Digital Life & Family Navigator,High,Zayn,Active,Refine prototype and validate core navigation,"Helps South Africans aged 50+ and their supporters navigate everyday digital family health care government-support and home/safety problems"
+Product,Core,My Digital Life,High,Zayn,Active,Review existing phone and WhatsApp support,"Phone help already exists in prototype"
+Product,Core,My Family & Care,High,Zayn,Active,Review existing care and family pathways,"Family Mode and care pathway already exist"
+Product,Core,My Health,High,Zayn,Needs Work,Define useful starting-point pathways,"Current prototype contains placeholders"
+Product,Support,My Support,High,Zayn,Active,Review SASSA and government routes,"Official starting points already included"
+Product,Core,My Home & Safety,Medium,Zayn,Needs Work,Define household electricity and safety pathways,"Current prototype contains placeholders"
+Product,Commercial,Validation,High,Zayn,Open,Validate with 50+ users and supporters,"Do not build features without evidence"
+Product,Product,Language Support,Medium,Zayn,Needs Review,Verify 11-language switching consistency,"Existing prototype has language implementation that needs review"

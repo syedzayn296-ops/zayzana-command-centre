@@ -1,0 +1,7 @@
+ID,Priority,Type,Action,Status,Notes
+1,High,Product,Map existing prototype against the five locked Sizani core areas,Open,My Digital Life; My Family & Care; My Health; My Support; My Home & Safety
+2,High,Development,Fix language-switch consistency across the interface,Open,Known tester feedback
+3,High,Product,Replace or complete placeholder pathways for Health and Home & Safety,Open,Only after pathway requirements are defined
+4,Medium,Development,Review language implementation for duplication and consistency,Open,Do not redesign until current behaviour is understood
+5,Medium,Validation,Validate Sizani with 50+ users and people who support them,Open,Use feedback to justify future development
+6,Low,Commercial,Assess whether the grant/support pathway should become a separate product or remain inside Sizani,Open,Decision required after validation
