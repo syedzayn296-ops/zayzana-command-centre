@@ -1,6 +1,7 @@
 Priority,Product,Action,Why It Matters,Status
-High,Fishing Logbook,Recover full Sent-mail outreach list,Prevents lost leads and missed follow-ups,Open
-High,Take n Pay Delivery Hub,Verify demo navigation end-to-end,Meeting readiness,Open
+High,Overseas Prospect Campaign,Review and send first follow-ups after 5 business days; final follow-up at 10–12 business days,Prevents missed replies and keeps the 100-prospect experiment disciplined,Open
 High,Taalhuis,Convert school feedback into tracked fixes,Improves pilot readiness,Open
 High,Sizani,Fix language-switch consistency,Core product usability,Open
+Medium,Take n Pay Delivery Hub,Keep parked unless new contact or opportunity appears,Prevents unnecessary work while waiting on Take n Pay,Parked
+Medium,Fishing Logbook,Keep outreach follow-up closed unless a new lead/reply appears,Campaign already handled,Closed
 Medium,All,Log every future contact feedback item and next action,Creates reliable institutional memory,Ongoing
