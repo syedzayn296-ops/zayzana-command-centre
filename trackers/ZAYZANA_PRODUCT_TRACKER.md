@@ -1,28 +1,23 @@
 # Zayzana Tech — Product Command Centre Tracker
 
-Last updated: 2026-10-02
+Last audited: 2026-10-08
 
-## Products
+## Products / commercial projects
 
-| Product | Status | Current focus | Next action |
+| Product / Project | Status | Current focus | Next action |
 |---|---|---|---|
-| Taalhuis | Active | School feedback + content/language fixes | Convert outstanding feedback into tracked fixes |
-| Sizani | Active | 11-language support + tester feedback | Fix language-switch consistency and follow up testers |
-| Fishing Logbook | Active | Feedback + outreach recovery | Recover complete Sent-mail outreach list |
-| Take n Pay Delivery Hub | Demo | Director demo readiness | Verify end-to-end demo flow and meeting pack |
-
-## Product links
-
-- Taalhuis: https://syedzayn296-ops.github.io/Taalhuis-/
-- Sizani: https://syedzayn296-ops.github.io/zayzana-command-centre/sizani/
-- Fishing Logbook: https://syedzayn296-ops.github.io/Fishing---logbook/
-- Take n Pay Delivery Hub: https://syedzayn296-ops.github.io/Take-n-pay-delivery-hub/
+| Taalhuis | Active | School outreach + validated product fixes | Treverton demo 12 Oct; local/national outreach |
+| Sizani | Parked/Active | 11-language support + tester feedback | Fix language-switch consistency; validate partner route |
+| Fishing Logbook | Parked | Commercial validation + outreach reconciliation | Recover complete Sent-mail list |
+| Take N Pay Delivery Hub | Parked | Wait for commercial trigger | Reopen only on new signal/problem |
+| Overseas Plumbing | Active | Prospect follow-ups + Enquiry Engine demos | Run follow-up workflow; reconcile pipeline |
+| Hypercheck / Checkstar | Active | Commercial discovery | Follow up 12 Oct; qualify operational problem |
+| Zayzana Tech / Web | Active | Sales infrastructure | Use existing site/email as commercial assets |
 
 ## Tracking rule
 
-Every product gets:
+Every active or parked project gets a persistent tracker containing:
 - status
-- version
 - current focus
 - next action
 - blockers
@@ -31,29 +26,46 @@ Every product gets:
 - follow-up dates
 - revenue opportunity
 - GitHub repository
-- live URL
+- live URL where applicable
 
 Every contact or feedback item should end with a clear next action.
 
-## Known outreach / feedback currently recorded
+## Tracker locations
+
+- Taalhuis: `tracker/`
+- Sizani / Command Centre: `trackers/`
+- Overseas Plumbing: `tracker/` plus detailed overseas prospect rows in this Command Centre's `trackers/overseas-prospect-tracker.csv`
+- Take N Pay: `tracker/ZAYZANA-PROJECT-TRACKER.md`
+- Fishing Logbook: `tracker/ZAYZANA-PROJECT-TRACKER.md`
+- Hypercheck / Checkstar: Cofounder repo `commercial/ZAYZANA-COMMERCIAL-TRACKER.md`
+
+## Known commercial milestones
+
+### Taalhuis
+- Treverton warm lead: meeting confirmed for Monday 12 Oct, 11:45–12:30.
+- Local 11-school direct-demo target list prepared.
+- National school outreach remains a commercial priority.
+
+### Hypercheck / Checkstar
+- Initial outreach sent 2026-10-08 to Raffi Abdoola.
+- Next follow-up: 2026-10-12.
+- Goal is discovery and qualification, not pitching an online grocery clone.
+
+### Take N Pay
+- Contact/relationship exists but project is parked.
+- Reopen only when a concrete operational problem or commercial trigger appears.
 
 ### Fishing Logbook
-- Adam — reviewer identified 2026-09-21
-- Suveer — reviewer identified 2026-09-21
-- Sid — reviewer identified 2026-09-21
-- Full Sent-mail outreach list still needs reconciliation.
+- Adam, Suveer and Sid were identified as reviewers on 2026-09-21.
+- Full Sent-mail outreach reconciliation remains outstanding.
 
-### Sizani
-- Nat Govender — tester / TAC groups
-- Waseem — positive feedback ("tops")
-- Reon — tester
+## Immediate commercial action queue
 
-### Take n Pay Delivery Hub
-- Ismail Salajee — director contact; 2026-09-25 said to come Monday/Tuesday to make an appointment.
+1. Hypercheck — follow up 2026-10-12.
+2. Taalhuis — prepare Treverton demo and execute school outreach.
+3. Overseas Plumbing — run scheduled follow-ups and keep pipeline reconciled.
+4. Fishing Logbook — recover outreach history before sending more follow-ups.
+5. Sizani — validate whether there is a real buyer/partner before more build work.
+6. Take N Pay — remain parked unless new commercial signal appears.
 
-## Immediate action queue
-
-1. Fishing Logbook — recover full Sent-mail outreach list.
-2. Take n Pay Delivery Hub — verify demo navigation end-to-end.
-3. Taalhuis — convert outstanding school feedback into tracked fixes.
-4. Sizani — fix language-switch consistency.
+**Commercial rule:** Discover first → Qualify second → Recommend third → Execute only after Zayn approves.
